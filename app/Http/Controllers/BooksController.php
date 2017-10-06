@@ -11,13 +11,13 @@ class BooksController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view('books', compact('books'));
+        return view('books.index', compact('books'));
     }
 
     public function create()
     {
         $authors = Author::all();
-        return view('book', compact('authors'));
+        return view('books.add', compact('authors'));
     }
 
     public function add(Request $request, Book $book)

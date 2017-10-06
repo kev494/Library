@@ -10,12 +10,12 @@ class AuthorsController extends Controller
     public function index()
     {
         $authors = Author::all();
-        return view('authors', compact('authors'));
+        return view('authors.index', compact('authors'));
     }
 
     public function create()
     {
-        return view('author');
+        return view('authors.add');
     }
 
     public function add(Request $request, Author $author)

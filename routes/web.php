@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', 'BooksController@index');
-Route::get('/book/create', 'BooksController@create');
-Route::post('book/create', 'BooksController@add');
+Route::get('/books', 'BooksController@index');
+Route::get('/books/create', 'BooksController@create');
+Route::post('books/create', 'BooksController@add');
 
 Route::get('authors', 'AuthorsController@index');
-Route::get('author/create', 'AuthorsController@create');
-Route::post('author/create', 'AuthorsController@add');
+Route::get('authors/create', 'AuthorsController@create');
+Route::post('authors/create', 'AuthorsController@add');

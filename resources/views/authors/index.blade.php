@@ -1,9 +1,19 @@
 @extends('layout.layout')
 
 @section('content')
+    <script language="JavaScript" type="text/javascript">
+        $(function(){
+            $('.table tr[data-href]').each(function(){
+                $(this).css('cursor','pointer').click( function(){
+                        window.location.href += '/'+$(this).attr('id');
+                    }
+                );
+            });
+        });
+    </script>
     <h1>Authors</h1>
     <div>
-        <a href="/author/create" class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"
+        <a href="/authors/create" class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"
                                                                aria-hidden="true"></span>&nbsp;new author</a>
     </div>
     <div>
@@ -16,7 +26,7 @@
             </thead>
             <tbody>
             @foreach($authors as $author)
-                <tr>
+                <tr data-href id="{{$author->id}}">
                     <th>{{$author->name}}</th>
                 </tr>
             @endforeach
