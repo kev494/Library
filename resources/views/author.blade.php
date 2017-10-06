@@ -1,5 +1,16 @@
 @extends('layout.layout')
 
 @section('content')
-    <h1>Authors</h1>
+    <h2>Add a new author</h2>
+    <form method="post" action="">
+        {{ csrf_field() }}
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div>
+            <input type="submit" class="btn btn-secondary pull-right" value="Submit">
+        </div>
+
+    </form>
 @endsection

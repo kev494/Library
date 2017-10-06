@@ -2,12 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
+use App\Book;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
 {
     public function index()
     {
-        return view('books');
+        $books = Book::all();
+        return view('books', compact('books'));
+    }
+
+    public function create()
+    {
+        $authors = Author::all();
+        return view('book', compact('authors'));
+    }
+
+    public function add(Request $request, Book $book)
+    {
+        $book->create($request->all());
+
+        return redirect('/');
     }
 }

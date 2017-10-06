@@ -12,4 +12,9 @@
 */
 
 Route::get('/', 'BooksController@index');
+Route::get('/book/create', 'BooksController@create');
+Route::post('book/create', 'BooksController@add');
+
 Route::get('authors', 'AuthorsController@index');
+Route::get('author/create', 'AuthorsController@create');
+Route::post('author/create', 'AuthorsController@add');
