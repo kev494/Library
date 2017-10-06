@@ -9,7 +9,12 @@
     <title>Kevin's library</title>
 </head>
 <body>
-    @include('nav')
-    @yield('content')
+    @include('layout.nav')
+    <div class="container">
+        @yield('content')
+    </div>
 </body>
+<footer>
+    <script src="/js/app.js"></script>
+</footer>
 </html>
