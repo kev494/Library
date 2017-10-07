@@ -12,6 +12,7 @@
 */
 
 Route::get('/books', 'BooksController@index');
+Route::get('/books/{book}', 'BooksController@show');
 Route::get('/books/create', 'BooksController@create');
 Route::post('books/create', 'BooksController@add');
 
