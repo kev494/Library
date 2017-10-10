@@ -6,10 +6,14 @@
                 <a class="navbar-brand" href="books">Kevin's Library</a>
             </div>
             <ul class="nav navbar-nav">
-                <li role="presentation" class="{{Request::is('books') ? 'active' : ''}}"><a href="{{url('books')}}" role="tab">Books</a>
+                <li role="presentation" class="{{Request::is('books') ? 'active' : ''}}"><a href="{{url('books')}}"
+                                                                                            role="tab">Books</a>
                 </li>
                 <li role="presentation" class="{{Request::is('authors') ? 'active' : ''}}"><a href="{{url('/authors')}}"
                                                                                               role="tab">Authors</a>
+                </li>
+                <li role="presentation" class="{{Request::is('genres') ? 'active' : ''}}"><a href="{{url('/genres')}}"
+                                                                                              role="tab">Genres</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
