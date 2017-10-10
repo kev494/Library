@@ -13,7 +13,7 @@
     </script>
     <h1>Authors</h1>
     <div>
-        <a href="/authors/create" class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"
+        <a href={{url('authors/create')}} class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"
                                                                aria-hidden="true"></span>&nbsp;new author</a>
     </div>
     <div>

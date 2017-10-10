@@ -16,7 +16,7 @@
 
     <h1>Books</h1>
     <div>
-        <a href="/books/create" class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"
+        <a href={{url('books/create')}} class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"
                                                                           aria-hidden="true"></span>&nbsp;new book</a>
     </div>
 

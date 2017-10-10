@@ -29,6 +29,6 @@ class BooksController extends Controller
     {
         $book->create($request->all());
 
-        return redirect('/');
+        return redirect('/books');
     }
 }
