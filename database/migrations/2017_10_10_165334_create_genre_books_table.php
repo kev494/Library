@@ -13,7 +13,7 @@ class CreateGenreBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('genre_books', function (Blueprint $table) {
+        Schema::create('genres_books', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('book_id')->unsigned()->index();
             $table->integer('genre_id')->unsigned()->index();
@@ -28,6 +28,6 @@ class CreateGenreBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genre_books');
+        Schema::dropIfExists('genres_books');
     }
 }

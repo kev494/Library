@@ -2,7 +2,7 @@
 
 @section('content')
     <h2>Add a new book</h2>
-    <form method="post" action="">
+    <form method="post" action="/books/create">
         {{ csrf_field() }}
         <div class="form-group">
             <label>Title</label>
@@ -21,9 +21,9 @@
             </select>
         </div>
         <div>
-            <label class="checkbox-inline"><input type="checkbox" value="">Genre 1</label>
-            <label class="checkbox-inline"><input type="checkbox" value="">Genre 2</label>
-            <label class="checkbox-inline"><input type="checkbox" value="">Genre 3</label>
+            @foreach($genres as $genre)
+                <label class="checkbox-inline"><input type="checkbox" name="genres[]" value={{$genre->id}}>{{$genre->genre}}</label>
+            @endforeach
         </div>
         <div>
             <input type="submit" class="btn btn-secondary pull-right" value="Submit">

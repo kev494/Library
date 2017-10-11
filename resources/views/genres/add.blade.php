@@ -2,7 +2,7 @@
 
 @section('content')
     <h2>Add a new genre</h2>
-    <form method="post" action="">
+    <form method="post" action="/genres/create">
         {{ csrf_field() }}
         <div class="form-group">
             <label>Genre</label>
