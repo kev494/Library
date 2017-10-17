@@ -19,6 +19,8 @@ Route::get('books/{book}', 'BooksController@show');
 Route::get('authors', 'AuthorsController@index');
 Route::get('authors/create', 'AuthorsController@create');
 Route::post('authors/create', 'AuthorsController@add');
+Route::get('authors/{author}', 'AuthorsController@show');
+Route::patch('authors/{author}/edit', 'AuthorsController@edit');
 
 Route::get('genres', 'GenreController@index');
 Route::get('genres/create', 'GenreController@create');

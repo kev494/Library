@@ -11,13 +11,14 @@
             <thead>
             <tr>
                 <th>Name</th>
-
+                <th>Anzahl Bücher</th>
             </tr>
             </thead>
             <tbody>
             @foreach($authors as $author)
                 <tr data-href id="{{$author->id}}">
                     <th>{{$author->name}}</th>
+                    <th>{{DB::table('books')->where('author_id', $author->id)->count()}}</th>
                 </tr>
             @endforeach
             </tbody>

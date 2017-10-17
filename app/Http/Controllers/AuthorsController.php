@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Author;
+use App\Book;
 use Illuminate\Http\Request;
 
 class AuthorsController extends Controller
@@ -23,5 +24,16 @@ class AuthorsController extends Controller
         $author->create($request->all());
 
         return redirect('authors');
+    }
+
+    public function show(Author $author)
+    {
+        $books = Book::all()->where('author_id', $author->id);
+        return view('authors.show', compact('author', 'books'));
+    }
+
+    public function edit(Author $author)
+    {
+        return view('authors.edit', compact('author'));
     }
 }
