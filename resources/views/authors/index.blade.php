@@ -1,16 +1,6 @@
 @extends('layout.layout')
 
 @section('content')
-    <script language="JavaScript" type="text/javascript">
-        $(function(){
-            $('.table tr[data-href]').each(function(){
-                $(this).css('cursor','pointer').click( function(){
-                        window.location.href += '/'+$(this).attr('id');
-                    }
-                );
-            });
-        });
-    </script>
     <h1>Authors</h1>
     <div>
         <a href={{url('authors/create')}} class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"

@@ -2,18 +2,6 @@
 
 
 @section('content')
-
-    <script language="JavaScript" type="text/javascript">
-        $(function(){
-            $('.table tr[data-href]').each(function(){
-                $(this).css('cursor','pointer').click( function(){
-                    window.location.href += '/'+$(this).attr('id');
-                    }
-                );
-            });
-        });
-    </script>
-
     <h1>Books</h1>
     <div>
         <a href={{url('books/create')}} class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-plus"

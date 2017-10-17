@@ -800,7 +800,15 @@ window.Vue = __webpack_require__(35);
 Vue.component('example', __webpack_require__(36));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
+});
+
+$(function clickableTable() {
+    $('.table tr[data-href]').each(function () {
+        $(this).css('cursor', 'pointer').click(function () {
+            window.location.href += '/' + $(this).attr('id');
+        });
+    });
 });
 
 /***/ }),
