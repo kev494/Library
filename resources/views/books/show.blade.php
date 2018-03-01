@@ -8,7 +8,7 @@
             {{ method_field('PATCH') }}
             <div class="form-group">
                 <label>Title</label>
-                <input type="text" class="form-control" name="title" value={{$book->title}}>
+                <input type="text" class="form-control" name="title" value="{{$book->title}}">
             </div>
             <div class="form-group">
                 <label>Summary</label>
@@ -24,7 +24,10 @@
             </div>
             <div>
                 @foreach($genres as $genre)
-                    <label class="checkbox-inline"><input type="checkbox" name="genres[]">{{$genre->genre}}</label>
+                    <!--<label class="checkbox-inline"><input type="checkbox" name="genres[]">{{$genre->genre}}</label>-->
+                    {{ Form::checkbox('genre[]', $genre->id) }}
+                    <!--Form::checkbox('genre[]', $genre->id, is_null($book->genre->find($genre->id))}}-->
+                    {{ Form::label('genre', $genre->genre) }}
                 @endforeach
             </div>
             <div>

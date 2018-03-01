@@ -36,4 +36,11 @@ class AuthorsController extends Controller
     {
         return view('authors.edit', compact('author'));
     }
+
+    public function update(Request $request, Author $author)
+    {
+        $author->update($request->all());
+
+        return redirect('authors/' . $author->id);
+    }
 }

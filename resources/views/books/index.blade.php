@@ -22,7 +22,11 @@
                 <tr data-href id="{{$book->id}}">
                     <th>{{$book->title}}</th>
                     <th>{{$book->author->name}}</th>
-                    <th></th>
+                    <th>
+                        @foreach ($book->genre as $genre)
+                            {{$genre->genre}}
+                        @endforeach
+                    </th>
                 </tr>
             @endforeach
             </tbody>
