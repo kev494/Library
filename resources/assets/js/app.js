@@ -20,3 +20,19 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+
+$(function clickableTable(){
+    $('.table tr[data-href]').each(function(){
+        $(this).css('cursor','pointer').click( function(){
+                window.location.href += '/'+$(this).attr('id');
+            }
+        );
+    });
+
+    $('.table tr[data-href-book]').each(function(){
+        $(this).css('cursor','pointer').click( function(){
+                window.location.href = '/books/'+$(this).attr('id');
+            }
+        );
+    });
+});
