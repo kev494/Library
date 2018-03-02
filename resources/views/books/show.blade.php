@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label>Summary</label>
-                <textarea class="form-control" rows="4" name="summary"></textarea>
+                <textarea class="form-control" rows="4" name="summary">{{$book->summary}}</textarea>
             </div>
             <div class="form-group">
                 <label>Author</label>
