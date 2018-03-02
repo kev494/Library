@@ -22,7 +22,11 @@ class BooksController extends Controller
     {
         $authors = Author::all();
         $genres = Genre::all();
-        return view('books.show', compact('book', 'authors', 'genres'));
+        $selected_genres = $book->genre()->get();
+        //$selected_genres = $selected_genres->toArray();
+        //dd($selected_genres);
+
+        return view('books.show', compact('book', 'authors', 'genres', 'selected_genres'));
     }
 
     public function create()
@@ -38,12 +42,31 @@ class BooksController extends Controller
 
         $book->create($request->all());
         $book = Book::orderBy('created_at', 'desc')->first();
-        foreach ($genres as $genre){
-            DB::table('genres_books')->insert(
-                ['book_id' => $book->id , 'genre_id' => $genre]
-            );
+        if($genres != null) {
+            foreach ($genres as $genre) {
+                DB::table('genres_books')->insert(
+                    ['book_id' => $book->id, 'genre_id' => $genre]
+                );
+            }
         }
 
         return redirect('/books');
+    }
+
+    public function update(Request $request, Book $book)
+    {
+        $genres = Input::get('genres');
+        $book->update($request->all());
+        DB::table('genres_books')->where('book_id', $book->id)->delete();
+        if($genres != null){
+            foreach ($genres as $genre){
+                //dd($genre);
+                DB::table('genres_books')->insert(
+                    ['book_id' => $book->id , 'genre_id' => $genre]
+                );
+            }
+        }
+
+        return redirect()->back();
     }
 }

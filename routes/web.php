@@ -15,7 +15,7 @@ Route::get('books', 'BooksController@index');
 Route::get('books/create', 'BooksController@create');
 Route::post('books/create', 'BooksController@add');
 Route::get('books/{book}', 'BooksController@show');
-
+Route::patch('books/{book}', 'BooksController@update');
 
 Route::get('authors', 'AuthorsController@index');
 Route::get('authors/create', 'AuthorsController@create');
@@ -29,3 +29,4 @@ Route::get('genres', 'GenreController@index');
 Route::get('genres/create', 'GenreController@create');
 Route::post('genres/create', 'GenreController@add');
 Route::get('genres/{genre}', 'GenreController@show');
+Route::patch('genres/{genre}', 'GenreController@update');

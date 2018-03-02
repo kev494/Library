@@ -24,12 +24,16 @@
             </div>
             <div>
                 @foreach($genres as $genre)
-                    <!--<label class="checkbox-inline"><input type="checkbox" name="genres[]">{{$genre->genre}}</label>-->
-                    {{ Form::checkbox('genre[]', $genre->id) }}
-                    <!--Form::checkbox('genre[]', $genre->id, is_null($book->genre->find($genre->id))}}-->
-                    {{ Form::label('genre', $genre->genre) }}
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="genre" name="genres[]" value="{{$genre->id}}"
+                        @foreach($selected_genres as $genre_book)
+                            {{$genre_book->id == $genre->id ? 'checked' : ''}}
+                        @endforeach
+                        >{{$genre->genre}}
+                    </label>
                 @endforeach
             </div>
+
             <div>
                 <input type="submit" class="btn btn-secondary pull-right" value="Submit">
             </div>

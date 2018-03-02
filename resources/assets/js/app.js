@@ -28,4 +28,11 @@ $(function clickableTable(){
             }
         );
     });
+
+    $('.table tr[data-href-book]').each(function(){
+        $(this).css('cursor','pointer').click( function(){
+                window.location.href = '/books/'+$(this).attr('id');
+            }
+        );
+    });
 });

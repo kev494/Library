@@ -29,4 +29,11 @@ class GenreController extends Controller
 
         return redirect('/genres');
     }
+
+    public function update(Request $request, Genre $genre)
+    {
+        $genre->update($request->all());
+
+        return redirect()->back();
+    }
 }
