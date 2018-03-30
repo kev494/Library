@@ -12,6 +12,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
+                <th></th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Genres</th>
@@ -20,6 +21,7 @@
             <tbody>
             @foreach($books as $book)
                 <tr data-href id="{{$book->id}}">
+                    <th><img class="media-object" src="{{$book->coverfile}}"></th>
                     <th>{{$book->title}}</th>
                     <th>{{$book->author->name}}</th>
                     <th>

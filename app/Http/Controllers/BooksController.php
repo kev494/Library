@@ -8,6 +8,8 @@ use App\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class BooksController extends Controller
 {
@@ -23,10 +25,11 @@ class BooksController extends Controller
         $authors = Author::all();
         $genres = Genre::all();
         $selected_genres = $book->genre()->get();
+        $coverpath = Storage::url($book->coverfile);
         //$selected_genres = $selected_genres->toArray();
         //dd($selected_genres);
 
-        return view('books.show', compact('book', 'authors', 'genres', 'selected_genres'));
+        return view('books.show', compact('book', 'authors', 'genres', 'selected_genres', 'coverpath'));
     }
 
     public function create()
@@ -39,7 +42,6 @@ class BooksController extends Controller
     public function add(Request $request, Book $book)
     {
         $genres = Input::get('genres');
-
         $book->create($request->all());
         $book = Book::orderBy('created_at', 'desc')->first();
         if($genres != null) {
@@ -48,6 +50,11 @@ class BooksController extends Controller
                     ['book_id' => $book->id, 'genre_id' => $genre]
                 );
             }
+        }
+        if($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $path = Storage::putFile('covers', $file);
+            $book->update(['coverfile' => $path]);
         }
 
         return redirect('/books');

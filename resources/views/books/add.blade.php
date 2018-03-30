@@ -2,11 +2,15 @@
 
 @section('content')
     <h2>Add a new book</h2>
-    <form method="post" action="/books/create">
+    <form method="post" action="/books/create" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
             <label>Title</label>
             <input type="text" class="form-control" name="title">
+        </div>
+        <div class="form-group">
+            <label>Cover</label>
+           <input type="file" name="cover" accept="image/*">
         </div>
         <div class="form-group">
             <label>Summary</label>
